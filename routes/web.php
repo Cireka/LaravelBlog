@@ -2,8 +2,7 @@
 
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\File;
-use Spatie\YamlFrontMatter\YamlFrontMatter;
+
 
 
 /*
@@ -27,10 +26,13 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('posts/{postId}', function ($slug) {
-
+// $postId is type of Post Model
+// on default laravel uses Id To find specific post
+// we can specify specific field that we want to find post with
+// this is done with using : and then typing table field name in this case "slug"
+Route::get('posts/{post:slug}', function (Post $post) { // Post::Where('slug', $post)->first();
     return view('post', [
-        'post' => Post::find($slug)
+        'post' =>$post
     ]);
 
-})->where('postId', '[a-z\-]+');
+});

@@ -7,10 +7,10 @@
 </head>
 <body class="max-w-2xl m-auto">
 <article>
-    <h1><?= $post->title; ?></h1>
-    <duv>
-        <p><?= $post->body; ?></p>
-    </duv>
+    <h1 class="font-bold text-[32px] underline italic text-emerald-900">  {{$post->title}} </h1>
+    <div>
+        <p class="text-[22px] text-blue-700">{{$post->body}}</p>
+    </div>
 </article>
 
 <a class="text-[18px] font-bold" href="/">Go Back</a>

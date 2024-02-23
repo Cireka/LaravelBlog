@@ -6,13 +6,14 @@
     @vite('resources/css/app.css')
 </head>
 <body class="max-w-2xl m-auto">
-<?php foreach ($posts as $post) : ?>
+@foreach ($posts as $post)
 <article>
-    <h1><a href="/posts/<?= $post->slug; ?>"><?= $post->title; ?></a></h1>
+    <h1 class="font-bold text-[32px] underline italic text-emerald-900"><a href="/posts/{{$post->slug}}"> {{$post->title}}</a></h1>
+    <p class="text-fuchsia-800 font-bold" ><a href="/">{{$post->category->slug}}</a></p>
     <div>
-        <p><?= $post->excerpt; ?></p>
+        <p class="text-[22px] text-blue-700">{{$post->excerpt}}  </p>
     </div>
 </article>
-<?php endforeach; ?>
+@endforeach
 </body>
 </html>
